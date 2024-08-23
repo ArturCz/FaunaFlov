@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" />
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+</head>
+<body>
+    <div class="content">
+        <img class="background-image" alt="Background" src="{% static 'images/default_plant.jpg' %}">
+        <div class="form-container">
+            <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}  
+            <button class="rectangle type="submit">Login</button>
+        </form>
+            </div>
+        </div>
+    
+</body>
+</html>

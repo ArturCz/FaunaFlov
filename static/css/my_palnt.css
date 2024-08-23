@@ -1,0 +1,194 @@
+:root {
+    --primary-color: #001214;
+    --secondary-color: #edf6ee;
+    --font-regular: "Montserrat", sans-serif;
+    --font-medium: "Montserrat", sans-serif;
+    --font-bold: "Montserrat", sans-serif;
+}
+
+body {
+    font-family: var(--font-regular);
+    margin: 0;
+    padding: 0;
+    background-color: #d2d5ce;
+}
+
+.main-site {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: rgba(183, 187, 183, 0.31);
+    backdrop-filter: blur(5px);
+}
+
+.menu-item {
+    color: var(--primary-color);
+    font-family: var(--font-medium);
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.content {
+    padding: 20px;
+}
+
+.fauna-flov-is {
+    color: var(--primary-color);
+    font-family: var(--font-bold);
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.description {
+    color: var(--primary-color);
+    font-family: var(--font-regular);
+    font-size: 30px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.rectangle {
+    background: linear-gradient(87.79deg, rgba(26, 83, 25, 1) 0%, rgba(60, 155, 59, 1) 100%);
+    border-radius: 100px;
+    width: 300px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    font-family: var(--font-medium);
+    font-size: 15px;
+}
+
+.get-started {
+    color: #ffffff; /* Ustawienie koloru na biały */
+    font-family: var(--font-medium);
+    font-size: 15px;
+    font-weight: 700; /* Zmienione na bardziej standardową wagę */
+    z-index: 11;
+}
+
+.footer {
+    background: rgba(183, 187, 183, 0.31);
+    backdrop-filter: blur(5px);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-info, .directions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.e-mail, .contact-title, .our-address {
+    color: var(--primary-color);
+    font-family: var(--font-bold);
+    font-size: 15px;
+}
+
+.email-address, .contact-number, .location, .street {
+    color: var(--primary-color);
+    font-family: var(--font-medium);
+    font-size: 15px;
+}
+
+.directions .menu-item {
+    color: var(--primary-color);
+    font-family: var(--font-medium);
+    font-size: 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.table-container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1;
+    width: 40%;
+}
+
+.plant-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+
+}
+
+.plant-table th,
+.plant-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+
+}
+
+.plant-table th {
+    background-color: #4CAF50;
+    color: white;
+
+
+}
+
+.details-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.details-button:hover {
+    background-color: #45a049;
+}
+
+.water-button {
+    background-color: #3944BC;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.details-button:hover {
+    background-color: #d4a02e;
+}

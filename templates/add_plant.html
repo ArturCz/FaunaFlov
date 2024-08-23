@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Add Plant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/add_plant.css' %}">
+</head>
+<body>
+<div class="main-site">
+
+    <img alt="Background image of plants" class="background-image" src="{% static 'images/background1.jpg' %}"/>
+
+    <div class="header">
+        <a href="{% url 'main' %}" class="menu-item main-site2">Main site</a>
+        <a href="{% url 'add_plant' %}" class="menu-item add-plant">Add plant</a>
+        <a href="{% url 'my_plants' %}" class="menu-item main-plants">My plants</a>
+        <a href="{% url 'notifications' %}" class="menu-item notifications">Notifications</a>
+        <a href="{% url 'logout' %}" class="menu-item notifications">Logout</a>
+    </div>
+
+    <div class="content">
+        <div class="form-container">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="name">Plant Name</label>
+                    <input type="text" id="name" name="name" class="form-control"
+                           placeholder="Enter plant name">{{ error }}
+                </div>
+
+                <div class="form-group">
+                    <label for="watering_interval">Watering Interval (days)</label>
+                    <input type="number" id="watering_interval" name="watering_interval" class="form-control"
+                           placeholder="Enter watering interval">
+                </div>
+
+                <div class="form-group">
+                    <label for="photo">Photo</label>
+                    <input type="file" id="photo" name="photo" class="form-control-file">
+                </div>
+
+                <div class="form-group">
+                    <label for="categories">Categories</label>
+                    <select id="categories" name="categories" class="form-control" multiple>
+                        {% for category in categories %}
+                            <option value="{{ category.id }}">{{ category.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="contact-info">
+            <div class="mail">
+                <div class="e-mail">E-mail:</div>
+                <div class="email-address">artur.czekaj99@gmail.com</div>
+            </div>
+
+            <div class="contact">
+                <div class="contact-title">Contact:</div>
+                <div class="contact-number">+48 987 234 197</div>
+            </div>
+
+            <div class="address">
+                <div class="our-address">Our address:</div>
+                <div class="location">Poland, Warszawa</div>
+                <div class="street">Al. Krakowska, 87</div>
+            </div>
+        </div>
+
+        <div class="directions">
+            <a href="{% url 'main' %}" class="menu-item main-site2">Main site</a>
+            <a href="{% url 'add_plant' %}" class="menu-item add-plant">Add plant</a>
+            <a href="{% url 'my_plants' %}" class="menu-item main-plants">My plants</a>
+            <a href="{% url 'notifications' %}" class="menu-item notifications">Notifications</a>
+            <a href="{% url 'logout' %}" class="menu-item notifications">Logout</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Main-site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/my_palnt.css' %}">
+</head>
+<body>
+<div class="main-site">
+
+    <img alt="Background image of plants" class="background-image" src="{% static 'images/background1.jpg' %}"/>
+
+    <div class="header">
+        <a href="{% url 'main' %}" class="menu-item main-site2">Main site</a>
+        <a href="{% url 'add_plant' %}" class="menu-item add-plant">Add plant</a>
+        <a href="{% url 'my_plants' %}" class="menu-item main-plants">My plants</a>
+        <a href="{% url 'notifications' %}" class="menu-item notifications">Notifications</a>
+        <a href="{% url 'logout' %}" class="menu-item notifications">Logout</a>
+    </div>
+
+    <div class="content">
+        <div class="table-container">
+            <table class="plant-table">
+                <thead>
+                <tr>
+                    <th>Plant Name</th>
+                    <th>Last wattered</th>
+
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for plant in plants %}
+                    <tr>
+                        <td>{{ plant.name }} </td>
+                        <td>{{ plant.last_watered }} </td>
+
+                        <td><a href="{% url 'plant_details' plant.id %}" class="details-button">Details</a>
+
+                            <form action="{% url 'water_plant' plant.pk %}" method="post" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="water-button">Water</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="2">You have no plants.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="contact-info">
+            <div class="mail">
+                <div class="e-mail">E-mail:</div>
+                <div class="email-address">artur.czekaj99@gmail.com</div>
+            </div>
+
+            <div class="contact">
+                <div class="contact-title">Contact:</div>
+                <div class="contact-number">+48 987 234 197</div>
+            </div>
+
+            <div class="address">
+                <div class="our-address">Our address:</div>
+                <div class="location">Poland, Warszawa</div>
+                <div class="street">Al. Krakowska, 87</div>
+            </div>
+        </div>
+
+        <div class="directions">
+            <a href="{% url 'main' %}" class="menu-item main-site2">Main site</a>
+            <a href="{% url 'add_plant' %}" class="menu-item add-plant">Add plant</a>
+            <a href="{% url 'my_plants' %}" class="menu-item main-plants">My plants</a>
+            <a href="{% url 'notifications' %}" class="menu-item notifications">Notifications</a>
+            <a href="{% url 'logout' %}" class="menu-item notifications">Logout</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
