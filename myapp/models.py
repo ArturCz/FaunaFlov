@@ -21,7 +21,7 @@ class WateringSchedule(models.Model):
 
 # Model reprezentujący zdjęcie rośliny
 class Photo(models.Model):
-    image = models.ImageField(upload_to='plant_photos/')
+    image = models.ImageField(upload_to='plant_photos/', default='plant_photos/default_plant.jpg')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
 # Model reprezentujący powiadomienie dla użytkownika

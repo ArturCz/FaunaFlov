@@ -37,7 +37,7 @@ class Add_Palnt(LoginRequiredMixin, View):
         categories = request.POST.getlist('categories')  # Pobieranie wybranych kategorii (relacja Many-to-Many)
 
         if name == "":  # Sprawdzanie, czy nazwa rośliny została podana
-            return redirect('add_plant')
+            return render(request, "add_plant.html", {'categories': categories, 'error': 'Plant name is required.'})
 
         # Obsługa zdjęcia rośliny (jeśli nie podano, przypisywany jest obraz domyślny)
         if photo_file:
@@ -119,10 +119,8 @@ class Notifications(LoginRequiredMixin, View):
 # Widok detali rośliny
 class Plant_details(LoginRequiredMixin, View):
     def get(self, request, pk):
-        plant = get_object_or_404(Plant, pk=pk, user=request.user)  # Pobieranie konkretnej rośliny
-        print(plant.photo.image.url)
-
-        photo_url = plant.photo.image.url  # Pobieranie URL zdjęcia rośliny
+        plant = get_object_or_404(Plant, pk=pk, user=request.user)
+        photo_url = plant.photo.image.url if plant.photo and plant.photo.image else '/media/plant_photos/default_plant.jpg'
 
         return render(request, 'plant_details.html', {
             'plant': plant,
